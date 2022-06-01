@@ -44,6 +44,7 @@ body {
     border: none;
     border-radius: 5px;
     padding: 5px;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -55,21 +56,27 @@ body {
     background-color: white;
     border: none;
     border-radius: 5px;
-    padding: 5px;
-    font-size: x-large;
+    padding: 10px;
+    font-size: 2cm;
+    font-weight: bold;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
 }
 
 .start-btn:hover {
     border: 2px solid black;
-    padding: 3px;
+    padding: 8px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
 
 .start {
     display: flex;
     justify-content: center;
-    padding-bottom: 15vh;
+    padding-bottom: 10vh;
 }
 
 #question {
@@ -84,6 +91,7 @@ body {
     margin: 10px;
     border-radius: 5px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 #hs-box:hover {
@@ -98,10 +106,4 @@ body {
     margin: 10px;
     border-radius: 10px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-}
-
-#count-box:hover {
-    border: 2px solid black;
-    padding: 3px;
-    background-color: rgba(255, 255, 255, 0.7);
 }
