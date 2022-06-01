@@ -10,21 +10,52 @@
 </head>
 
 <body>
-    <!--area containing content-->
-    <div class="container"> 
-        <div id="question-containter" class="hide">
-            <div id="question">Question</div>
-            <div id="answer-buttons" class="btn-grid">
-                <button class="btn">Answer1</button>
-                <button class="btn">Answer2</button>
-                <button class="btn">Answer3</button>
-                <button class="btn">Answer4</button>
-            </div>
+
+    <!-- container for high score and countdown -->
+    <div class="score-and-count">
+
+        <!-- high score button -->
+        <div class="high-score" id="high-score">
+            <h3 id="hs-box">High Score</h3>
         </div>
-        <div class="controls">
-            <button id="start-btn" class="start-btn btn">Start Quiz</button>
+
+        <!-- countdown timer -->
+        <div class="countdown" id="countdown">
+            <h3 id="count-box">Counter</h3>
         </div>
     </div>
+
+    <!-- container for questions and answers -->
+    <div class="quiz-container">
+
+        <!--area containing questions-->
+        <div class="container">
+            <div id="question-containter" class="hide">
+
+                <!-- where the questions will appear -->
+                <div id="question">
+                    <h1>Question</h1>
+                </div>
+
+                <!-- button grid -->
+                <div id="answer-buttons" class="btn-grid">
+                    <button class="btn">Answer1</button>
+                    <button class="btn">Answer2</button>
+                    <button class="btn">Answer3</button>
+                    <button class="btn">Answer4</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- start button -->
+        <div class="start">
+            <button id="start-btn" class="start-btn">Start Quiz</button>
+        </div>
+
+  <!-- JavaScript link -->
+  <script src="assets\script\script.js"></script>
+
 </body>
 
 </html>
