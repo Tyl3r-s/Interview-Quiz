@@ -7,37 +7,44 @@ var questions = [
             {text: "alerts", correct: false},
             {text: "numbers", correct: false}
         ]
+    },
+    {
+        question: "The condition in an if/else statement is enclosed with _____.",
+        answers: [
+            {text: "quotes", correct: false },
+            {text: "curly brackets", correct: true},
+            {text: "parenthesis", correct: false},
+            {text: "square brackets", correct: false}
+        ]
+    },
+    {
+        question: "Arrays in JavaScript are used to store _____.",
+        answers: [
+            {text: "numbers and strings", correct: false },
+            {text: "other arrays", correct: true},
+            {text: "booleans", correct: false},
+            {text: "all of the above", correct: false}
+        ]
+    },
+    {
+        question: "String values must be enclosed within _____ when being assigned to variables.",
+        answers: [
+            {text: "commas", correct: false },
+            {text: "curly brackets", correct: true},
+            {text: "quotes", correct: false},
+            {text: "parenthesis", correct: false}
+        ]
+    },
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        answers: [
+            {text: "javascript", correct: false },
+            {text: "terminal/bash", correct: true},
+            {text: "for loops", correct: false},
+            {text: "console.log", correct: false}
+        ]
     }
-]
-
-// var question = [];
-// question[0]= "Commonly used data types do NOT include:";
-// question[1]= "The condition in an if / else statement is enclosed with ______.";
-// question[2]= "Arrays in javascript are used to store _____.";
-// question[3]= "String values must be enclosed within _____ when being assigned to variables.";
-// question[4]= "A very useful tool used during development and debugging for printing content to the debugger is:";
-
-// var answer = [];
-// answer[0]= "strings";
-// answer[1]= "booleans";
-// answer[2]= "alerts";
-// answer[3]= "numbers";
-// answer[4]= "quotes";
-// answer[5]= "curly brackets";
-// answer[6]= "parenthesis";
-// answer[7]= "square brackets";
-// answer[8]= "numbers and strings";
-// answer[9]= "other arrays";
-// answer[10]= "booleans";
-// answer[11]= "all of the above";
-// answer[12]= "commas";
-// answer[13]="curly brackets";
-// answer[14]= "quotes";
-// answer[15]= "parenthesis";
-// answer[16]= "javascript";
-// answer[17]= "terminal/bash";
-// answer[18]= "for loops";
-// answer[19]= "console.log";
+];
 
 var startButton = document.getElementById("start-btn");
 
@@ -72,4 +79,6 @@ function startGame() {
     document.getElementById("count-box").style="color:green;";
     startTimer();
 };
+
+
 
