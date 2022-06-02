@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timed Quiz</title>
     <link rel="stylesheet" href="assets\style\style.css">
+    <script defer src="assets\script\script.js"></script>
 </head>
 
-<body>
+<body id="page-content">
 
     <!-- container for high score and countdown -->
     <div class="score-and-count">
@@ -34,15 +35,15 @@
 
                 <!-- where the questions will appear -->
                 <div id="question">
-                    <h1>Question</h1>
+                    <h2 id="insertQ">Question</h2>
                 </div>
 
                 <!-- button grid -->
                 <div id="answer-buttons" class="btn-grid">
-                    <button class="btn">Answer1</button>
-                    <button class="btn">Answer2</button>
-                    <button class="btn">Answer3</button>
-                    <button class="btn">Answer4</button>
+                    <button class="btn" id="ansr-btn1">Answer1</button>
+                    <button class="btn" id="ansr-btn2">Answer2</button>
+                    <button class="btn" id="ansr-btn3">Answer3</button>
+                    <button class="btn" id="ansr-btn4">Answer4</button>
                 </div>
             </div>
         </div>
@@ -53,8 +54,7 @@
             <button id="start-btn" class="start-btn">Start Quiz</button>
         </div>
 
-  <!-- JavaScript link -->
-  <script src="assets\script\script.js"></script>
+
 
 </body>
 
