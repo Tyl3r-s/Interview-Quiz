@@ -69,10 +69,17 @@ body {
 
 .btn-grid {
     display: grid;
-    grid-gap: 5vh;
+    grid-gap: 3vh;
     width: 50vw;
 }
 
+.btn-grid ol {
+    padding-left: 20px;
+}
+
+.btn-grid ol li {
+    margin: 10px;
+}
 .btn {
     background-color: white;
     border: none;
