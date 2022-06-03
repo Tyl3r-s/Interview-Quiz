@@ -25,7 +25,7 @@ var score = 0;
 // timer variable
 var counter = 0;
 // final score for local storage
-var finalScore = [];
+var highScores = [];
 
 // quiz box element
 var questionContainer = document.getElementById("container");
@@ -50,16 +50,6 @@ var highScoreEl = document.getElementById("hs-box")
 
 // restart button element
 var playAgainEl = document.getElementById("play-again")
-
-// show high score
-function showScores() {
-    var savedScores = localStorage.getItem("finalScore");
-    savedScores = JSON.parse(savedScores);
-    alert(savedScores);
-}
-
-
-highScoreEl = document.addEventListener("click", showScores);
 
 // restart function
 function playAgain() {
@@ -86,6 +76,16 @@ function startTimer() {
         }
     }, 1000);
 };
+
+// show high score
+function showScores() {
+    var savedScores = localStorage.getItem("highScores");
+    highScores = JSON.parse(savedScores);
+    alert(highScores);
+}
+
+highScoreEl.addEventListener("click", showScores);
+
 
 // start button function
 var startButton = document.getElementById("start-btn");
@@ -192,7 +192,7 @@ function quizEnd() {
     finalScoreEl.classList.remove("hide");
     saveScoreEl.classList.remove("hide");
     scoreTextEl.textContent="Your final score is: " + score + "!";
-    finalScore.push(score);
+    highScores.push(score);
     }
 };
 
@@ -204,24 +204,16 @@ if (initials === "" || initials === null) {
     window.alert("please enter your initials");
     return saveHighScore();
 }
-finalScore.push(initials);
+highScores.push(initials);
 saveScore();
 }
 
+
 function saveScore() {
-    localStorage.setItem("finalScore", JSON.stringify(finalScore));
+    localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 
-function loadScores() {
-    var savedScores = localStorage.getItem("finalScore");
-    if (!savedScores) {
-        return false;
-    }
-    console.log(savedScores);
 
-    savedScores = JSON.parse(savedScores);
 
-    for(var i = 0; i < savedScores.length; i++) {
-        saveScore(savedScores[i]);
-    }
-}
+
+
