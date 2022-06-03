@@ -18,12 +18,11 @@ let questionThree = {
 }
 
 // which question car you're on
-var i = 0;
+var i = [];
 // total score variable
 var score = 0;
-
 // timer variable
-var counter = [];
+var counter = 0;
 
 // quiz box element
 var questionContainer = document.getElementById("container");
@@ -32,13 +31,30 @@ var answerButtonsEl = document.getElementById("answer-buttons")
 
 var questionEl = document.getElementById("insertQ")
 
+// quiz timer 
+function startTimer() {
+    
+    setInterval(function() {
+        counter--;
+        if (counter >= 0) {
+            span = document.getElementById("count-box");
+            span.innerHTML = counter;
+        }
+        if (counter == 0) {
+            i = i * 0 + 3;
+            quizEnd();
+            clearInterval(counter);
+        }
+    }, 1000);
+};
+
 // start button function
 var startButton = document.getElementById("start-btn");
 
 startButton.addEventListener("click", startGame);
 
 function startGame() {
-    counter = 3;
+    counter = 5;
     startButton.classList.add("hide");
     questionContainer.classList.remove("hide");
     document.getElementById("count-box").style="color:green;";
@@ -49,7 +65,6 @@ function startGame() {
 
 // load question after start click
 function showQuestionOne() {
-
     // show question
     let questionDiv = document.getElementById("insertQ");
     questionDiv.textContent = questionOne.question;
@@ -61,12 +76,11 @@ function showQuestionOne() {
         element.textContent = questionOne.answers[index];
 
         element.addEventListener('click', function(){
-            i = i + 1;
             // check for correct
-            if (i==1){
+            if (i==0) { i++;
             if  (questionOne.correctAnswer == index) {
                 console.log("correct");
-                score++
+                score++;
             }
             else {
                 console.log("wrong");
@@ -90,10 +104,8 @@ function showQuestionTwo() {
         element.textContent = questionTwo.answers[index];
 
         element.addEventListener('click', function(){
-            i = i + 1;
-            showQuestionThree();
             // check for correct
-            if (i==3) {
+            if (i==1) { i++;
             if  (questionTwo.correctAnswer == index) {
                 console.log("correct");
                 score++
@@ -102,7 +114,8 @@ function showQuestionTwo() {
                 console.log("wrong");
                 counter = counter - 5;
             }
-            } 
+            }
+            showQuestionThree(); 
         })
     });
 }
@@ -119,9 +132,8 @@ function showQuestionThree() {
         element.textContent = questionThree.answers[index];
 
         element.addEventListener('click', function(){
-            i = i + 1;
             // check for correct
-            if (i==7) {
+            if (i==2) { i++;
             if  (questionThree.correctAnswer == index) {
                 console.log("correct");
                 score++
@@ -130,36 +142,18 @@ function showQuestionThree() {
                 console.log("wrong");
                 counter = counter - 5;
             }
-            quizEnd();
             }
+            quizEnd();
         })
     });
 return;
 }
 
-// quiz timer 
-function startTimer() {
-    
-    setInterval(function() {
-        counter--;
-        if (counter >= 0) {
-            span = document.getElementById("count-box");
-            span.innerHTML = counter;
-        }
-        if (counter < 1) {
-            i = i + 7;
-            quizEnd();
-            clearInterval(counter);
-        }
-    }, 1000);
-};
-
 // The end of quiz 
 function quizEnd() {
-    if (i == 7) {
+    if (i == 3) {
     i = i + 1;
-    console.log(i);
-    console.log(score);
+    console.log("your score is: " + score);
     answerButtonsEl.classList.add("hide");
     questionEl.textContent="Finish!";
     counter = 0;
