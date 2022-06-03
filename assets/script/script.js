@@ -40,10 +40,12 @@ function startTimer() {
             span = document.getElementById("count-box");
             span.innerHTML = counter;
         }
-        if (counter == 0) {
+        if (counter <= 0) {
+            if (i < 4) {
             i = i * 0 + 3;
             quizEnd();
             clearInterval(counter);
+        }
         }
     }, 1000);
 };
@@ -151,8 +153,7 @@ return;
 
 // The end of quiz 
 function quizEnd() {
-    if (i == 3) {
-    i = i + 1;
+    if (i == 3) {i++;
     console.log("your score is: " + score);
     answerButtonsEl.classList.add("hide");
     questionEl.textContent="Finish!";
