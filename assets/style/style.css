@@ -8,6 +8,13 @@ body {
     font-family: Candara;
     background-image: url('../Images/trianglify-lowres.png');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+
+html {
+    height:100%;
 }
 
 /* score button and timer */
@@ -41,6 +48,29 @@ body {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
 
+/* final score box */
+
+.display-box {
+    background-color: rgba(255, 255, 255, 0.4);
+    height: 25vh;
+    width: 30vw;
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top: 20vh;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+#save-score {
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#play-again {
+    text-align: center;
+}
 /* question and answers */
 
 .quiz-container {
@@ -65,6 +95,10 @@ body {
     justify-content: center;
     margin: 4vh;
     padding: 4vh;
+}
+
+#insertQ {
+    font-size: 30px;
 }
 
 .btn-grid {

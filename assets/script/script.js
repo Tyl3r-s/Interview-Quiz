@@ -17,19 +17,44 @@ let questionThree = {
     correctAnswer: 3
 }
 
+// global variables
+
 // which question car you're on
-var i = [];
+var i = 0;
 // total score variable
 var score = 0;
 // timer variable
 var counter = 0;
+// final score for local storage
+var finalScore = [];
 
 // quiz box element
 var questionContainer = document.getElementById("container");
 
+// answer buttons element
 var answerButtonsEl = document.getElementById("answer-buttons")
 
+// question text element 
 var questionEl = document.getElementById("insertQ")
+
+// div element that holds end of game items
+var finalScoreEl = document.getElementById("display-box")
+
+// end score element
+var scoreTextEl = document.getElementById("final-score")
+
+// save your score button element
+var saveScoreEl = document.getElementById("save-score")
+
+// restart button element
+var playAgainEl = document.getElementById("play-again")
+
+// restart function
+function playAgain() {
+    playAgain = location.reload();
+}
+
+playAgainEl.addEventListener("click", playAgain, false);
 
 // quiz timer 
 function startTimer() {
@@ -56,7 +81,7 @@ var startButton = document.getElementById("start-btn");
 startButton.addEventListener("click", startGame);
 
 function startGame() {
-    counter = 5;
+    counter = 30;
     startButton.classList.add("hide");
     questionContainer.classList.remove("hide");
     document.getElementById("count-box").style="color:green;";
@@ -157,6 +182,11 @@ function quizEnd() {
     console.log("your score is: " + score);
     answerButtonsEl.classList.add("hide");
     questionEl.textContent="Finish!";
+    questionEl.style.fontSize = "50px";
     counter = 0;
+    finalScoreEl.classList.remove("hide");
+    saveScoreEl.classList.remove("hide");
+    scoreTextEl.textContent="Your final score is: " + score + "!";
     }
+    
 };
