@@ -23,7 +23,7 @@ var i = 0;
 var score = 0;
 
 // timer variable
-var counter = 3;
+var counter = [];
 
 // quiz box element
 var questionContainer = document.getElementById("container");
@@ -38,17 +38,18 @@ var startButton = document.getElementById("start-btn");
 startButton.addEventListener("click", startGame);
 
 function startGame() {
-    count = 50;
+    counter = 3;
     startButton.classList.add("hide");
     questionContainer.classList.remove("hide");
     document.getElementById("count-box").style="color:green;";
     startTimer();
-    showQuestionThree();
+    showQuestionOne();
 };
 
 
 // load question after start click
 function showQuestionOne() {
+
     // show question
     let questionDiv = document.getElementById("insertQ");
     questionDiv.textContent = questionOne.question;
@@ -60,7 +61,9 @@ function showQuestionOne() {
         element.textContent = questionOne.answers[index];
 
         element.addEventListener('click', function(){
+            i = i + 1;
             // check for correct
+            if (i==1){
             if  (questionOne.correctAnswer == index) {
                 console.log("correct");
                 score++
@@ -68,7 +71,9 @@ function showQuestionOne() {
             else {
                 console.log("wrong");
                 counter = counter - 5;
-            } 
+            }
+            }
+            showQuestionTwo();
         })
     });
 }
@@ -85,7 +90,10 @@ function showQuestionTwo() {
         element.textContent = questionTwo.answers[index];
 
         element.addEventListener('click', function(){
+            i = i + 1;
+            showQuestionThree();
             // check for correct
+            if (i==3) {
             if  (questionTwo.correctAnswer == index) {
                 console.log("correct");
                 score++
@@ -93,6 +101,7 @@ function showQuestionTwo() {
             else {
                 console.log("wrong");
                 counter = counter - 5;
+            }
             } 
         })
     });
@@ -110,7 +119,9 @@ function showQuestionThree() {
         element.textContent = questionThree.answers[index];
 
         element.addEventListener('click', function(){
+            i = i + 1;
             // check for correct
+            if (i==7) {
             if  (questionThree.correctAnswer == index) {
                 console.log("correct");
                 score++
@@ -118,9 +129,12 @@ function showQuestionThree() {
             else {
                 console.log("wrong");
                 counter = counter - 5;
-            } 
+            }
+            quizEnd();
+            }
         })
     });
+return;
 }
 
 // quiz timer 
@@ -132,7 +146,8 @@ function startTimer() {
             span = document.getElementById("count-box");
             span.innerHTML = counter;
         }
-        if (counter === 0) {
+        if (counter < 1) {
+            i = i + 7;
             quizEnd();
             clearInterval(counter);
         }
@@ -141,6 +156,12 @@ function startTimer() {
 
 // The end of quiz 
 function quizEnd() {
+    if (i == 7) {
+    i = i + 1;
+    console.log(i);
+    console.log(score);
     answerButtonsEl.classList.add("hide");
     questionEl.textContent="Finish!";
+    counter = 0;
+    }
 };
