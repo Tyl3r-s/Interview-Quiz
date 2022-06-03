@@ -16,7 +16,6 @@ let questionThree = {
     answers: ["numbers and strings", "other arrays", "booleans", "all of the above"],
     correctAnswer: 3
 }
-
 // global variables
 
 // which question car you're on
@@ -46,8 +45,21 @@ var scoreTextEl = document.getElementById("final-score")
 // save your score button element
 var saveScoreEl = document.getElementById("save-score")
 
+// check high score
+var highScoreEl = document.getElementById("hs-box")
+
 // restart button element
 var playAgainEl = document.getElementById("play-again")
+
+// show high score
+function showScores() {
+    var savedScores = localStorage.getItem("finalScore");
+    savedScores = JSON.parse(savedScores);
+    alert(savedScores);
+}
+
+
+highScoreEl = document.addEventListener("click", showScores);
 
 // restart function
 function playAgain() {
@@ -106,11 +118,9 @@ function showQuestionOne() {
             // check for correct
             if (i==0) { i++;
             if  (questionOne.correctAnswer == index) {
-                console.log("correct");
                 score++;
             }
             else {
-                console.log("wrong");
                 counter = counter - 5;
             }
             }
@@ -134,11 +144,9 @@ function showQuestionTwo() {
             // check for correct
             if (i==1) { i++;
             if  (questionTwo.correctAnswer == index) {
-                console.log("correct");
                 score++
             }
             else {
-                console.log("wrong");
                 counter = counter - 5;
             }
             }
@@ -162,11 +170,9 @@ function showQuestionThree() {
             // check for correct
             if (i==2) { i++;
             if  (questionThree.correctAnswer == index) {
-                console.log("correct");
                 score++
             }
             else {
-                console.log("wrong");
                 counter = counter - 5;
             }
             }
@@ -179,7 +185,6 @@ return;
 // The end of quiz 
 function quizEnd() {
     if (i == 3) {i++;
-    console.log("your score is: " + score);
     answerButtonsEl.classList.add("hide");
     questionEl.textContent="Finish!";
     questionEl.style.fontSize = "50px";
@@ -187,6 +192,36 @@ function quizEnd() {
     finalScoreEl.classList.remove("hide");
     saveScoreEl.classList.remove("hide");
     scoreTextEl.textContent="Your final score is: " + score + "!";
+    finalScore.push(score);
     }
-    
 };
+
+saveScoreEl.addEventListener("click", saveHighScore);
+
+function saveHighScore() {
+    var initials = window.prompt("What are your initials?")
+if (initials === "" || initials === null) {
+    window.alert("please enter your initials");
+    return saveHighScore();
+}
+finalScore.push(initials);
+saveScore();
+}
+
+function saveScore() {
+    localStorage.setItem("finalScore", JSON.stringify(finalScore));
+}
+
+function loadScores() {
+    var savedScores = localStorage.getItem("finalScore");
+    if (!savedScores) {
+        return false;
+    }
+    console.log(savedScores);
+
+    savedScores = JSON.parse(savedScores);
+
+    for(var i = 0; i < savedScores.length; i++) {
+        saveScore(savedScores[i]);
+    }
+}
