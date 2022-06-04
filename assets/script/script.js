@@ -25,7 +25,7 @@ var score = 0;
 // timer variable
 var counter = 0;
 // final score for local storage
-var highScores = [];
+let highScores = [].toString();
 
 // quiz box element
 var questionContainer = document.getElementById("container");
@@ -80,8 +80,20 @@ function startTimer() {
 // show high score
 function showScores() {
     var savedScores = localStorage.getItem("highScores");
+    alert(savedScores);
     highScores = JSON.parse(savedScores);
-    alert(highScores);
+    if (highScores === "" || highScores === null) {
+        alert("no leaderboard!");
+        return playAgain();
+    } else {
+    console.log(highScores);
+    }
+    // if (highScores !== null) {
+    //     for (var i = 0; i < highScores.length; i++) {
+            
+    //     }
+    // }
+    // alert(highScores);
 }
 
 highScoreEl.addEventListener("click", showScores);
@@ -192,25 +204,41 @@ function quizEnd() {
     finalScoreEl.classList.remove("hide");
     saveScoreEl.classList.remove("hide");
     scoreTextEl.textContent="Your final score is: " + score + "!";
-    highScores.push(score);
+    highScores = score;
     }
 };
 
-saveScoreEl.addEventListener("click", saveHighScore);
+saveScoreEl.addEventListener("click", saveScore);
 
-function saveHighScore() {
-    var initials = window.prompt("What are your initials?")
-if (initials === "" || initials === null) {
-    window.alert("please enter your initials");
-    return saveHighScore();
-}
-highScores.push(initials);
-saveScore();
-}
+// // function saveHighScore() {
+// //     var savedScores = localStorage.getItem("highScores");
+// //     highScores = JSON.parse(savedScores);
+
+// //     } else {
+// //         highScores.push(initials);
+// //         saveScore();
+// //     }
+// // }
 
 
 function saveScore() {
-    localStorage.setItem("highScores", JSON.stringify(highScores));
+    var SavedScores = localStorage.getItem("highScores");
+    // if (strSavedScores === "" || strSavedScores === null) {
+    //     strSavedScores = highScores;
+    // }
+    // highScores = JSON.parse(strSavedScores);
+    var initials = window.prompt("What are your initials?")
+        if (initials === "" || initials === null) {
+            window.alert("please enter your initials");
+            return saveScore();
+        }
+        if (SavedScores === null){
+            highScores = {score : initials}
+            localStorage.setItem("highScores", JSON.stringify(highScores));
+        } else {
+        highScores = SavedScores + {score : initials}
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+        }
 }
 
 
