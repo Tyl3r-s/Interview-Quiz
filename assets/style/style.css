@@ -6,7 +6,7 @@
 
 body {
     font-family: Candara;
-    background-image: url(assets\images\trianglify-lowres.png);
+    background-image: url('../Images/trianglify-lowres.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
