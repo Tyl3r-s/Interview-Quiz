@@ -1,7 +1,7 @@
 # Tyler Scott's JavaScript Quiz
 
 ## Purpose
-This quiz project is eant to demonstrates javascript methonds using APIs
+This quiz project is meant to demonstrates javascript methonds using APIs
 ## Built With
 * HTML
 * CSS
