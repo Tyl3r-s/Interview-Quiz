@@ -87,12 +87,6 @@ function showScores() {
     } else {
       alert(highScores);
     }
-    // if (highScores !== null) {
-    //     for (var i = 0; i < highScores.length; i++) {
-            
-    //     }
-    // }
-    // alert(highScores);
 }
 
 highScoreEl.addEventListener("click", showScores);
@@ -207,6 +201,7 @@ function quizEnd() {
     }
 };
 
+// save score button function 
 saveScoreEl.addEventListener("click", saveScore);
 
 function saveScore() {
