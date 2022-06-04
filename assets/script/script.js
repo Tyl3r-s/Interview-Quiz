@@ -80,13 +80,12 @@ function startTimer() {
 // show high score
 function showScores() {
     var savedScores = localStorage.getItem("highScores");
-    alert(savedScores);
-    highScores = JSON.parse(savedScores);
+    highScores = savedScores;
     if (highScores === "" || highScores === null) {
-        alert("no leaderboard!");
+        alert("no saved scores!");
         return playAgain();
     } else {
-    console.log(highScores);
+      alert(highScores);
     }
     // if (highScores !== null) {
     //     for (var i = 0; i < highScores.length; i++) {
@@ -210,38 +209,15 @@ function quizEnd() {
 
 saveScoreEl.addEventListener("click", saveScore);
 
-// // function saveHighScore() {
-// //     var savedScores = localStorage.getItem("highScores");
-// //     highScores = JSON.parse(savedScores);
-
-// //     } else {
-// //         highScores.push(initials);
-// //         saveScore();
-// //     }
-// // }
-
-
 function saveScore() {
-    var SavedScores = localStorage.getItem("highScores");
-    // if (strSavedScores === "" || strSavedScores === null) {
-    //     strSavedScores = highScores;
-    // }
-    // highScores = JSON.parse(strSavedScores);
-    var initials = window.prompt("What are your initials?")
-        if (initials === "" || initials === null) {
-            window.alert("please enter your initials");
-            return saveScore();
-        }
-        if (SavedScores === null){
-            highScores = {score : initials}
-            localStorage.setItem("highScores", JSON.stringify(highScores));
-        } else {
-        highScores = SavedScores + {score : initials}
-        localStorage.setItem("highScores", JSON.stringify(highScores));
-        }
-}
+        
+            var initials = window.prompt("What are your initials?")
 
-
-
-
-
+            if (initials === "" || initials === null) {
+                window.alert("please enter your initials");
+                return saveScore();
+            };
+                highScores = initials + " scored: " + score;
+                localStorage.setItem("highScores", highScores);
+         
+};
